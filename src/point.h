@@ -1,5 +1,8 @@
-#include <gl/GL.h>
+#include <GL/gl.h>
 #include <cstdlib>
+
+static const float positionNudgeAmount = 0.01f;
+static const float colorNudgeAmount = 0.1f;
 
 class Point {
 public:
@@ -45,8 +48,6 @@ private:
 	float r;
 	float g;
 	float b;
-	const float positionNudgeAmount = 0.01f;
-	const float colorNudgeAmount = 0.1f;
 
 	float nudgeValue(float input, float nudgeAmount) {
 		int shouldNudge = rand() % 3;

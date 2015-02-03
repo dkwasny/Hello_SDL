@@ -1,8 +1,8 @@
 #include <iostream>
 #include "SDL.h"
 #include "SDL_opengl.h"
-#include <gl/GL.h>
-#include <gl/GLU.h>
+#include <GL/gl.h>
+#include <GL/glu.h>
 #include <cstdlib>
 #include "point.h"
 #include <vector>
@@ -38,7 +38,7 @@ int main(int argc, char* argv[])
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
 
 	if (SDL_Init(SDL_INIT_VIDEO) < 0) {
-		cout << "Failed initalization - " << SDL_GetError();
+		cout << "Failed initalization - " << SDL_GetError() << "\n";
 		return 1;
 	}
 
@@ -52,19 +52,19 @@ int main(int argc, char* argv[])
 	);
 
 	if (window == NULL) {
-		cout << "Window could not be created - " << SDL_GetError();
+		cout << "Window could not be created - " << SDL_GetError() << "\n";
 		return 1;
 	}
 
 	SDL_GLContext context = SDL_GL_CreateContext(window);
 	if (context == NULL) {
-		cout << "Error creating GL context " << SDL_GetError();
+		cout << "Error creating GL context " << SDL_GetError() << "\n";
 		return 1;
 	}
 
 	if (SDL_GL_SetSwapInterval(1) < 0) {
-		cout << "Error setting vsync " << SDL_GetError();
-		return 1;
+		cout << "Error setting vsync " << SDL_GetError() << "\n";
+		cout << "Linux VMs do not like Vsync it seems...not exiting" << "\n";
 	}
 
 	glMatrixMode(GL_PROJECTION);
@@ -105,6 +105,8 @@ int main(int argc, char* argv[])
 		glEnd();
 
 		SDL_GL_SwapWindow(window);
+
+		SDL_Delay(10);
 	}
 
 	SDL_DestroyWindow(window);
