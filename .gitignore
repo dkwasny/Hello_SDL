@@ -207,3 +207,6 @@ CMakeCache.txt
 # Custom Visual Studio Ignores Due to CMake Usage
 *.vcxproj*
 *.sln
+
+# Compiled binaries on Unix
+hello_world
