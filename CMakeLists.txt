@@ -1,5 +1,8 @@
 cmake_minimum_required(VERSION 3.0)
 set(CMAKE_PREFIX_PATH .)
+ENABLE_LANGUAGE(C)
+ENABLE_LANGUAGE(CXX)
+
 project(Hello_SDL CXX)
 
 add_executable(hello_world src/hello_world.cpp src/point.h)
