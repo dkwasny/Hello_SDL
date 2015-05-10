@@ -1,5 +1,7 @@
-cmake_minimum_required(VERSION 2.4)
-cmake_policy(SET CMP0003 NEW)
+cmake_minimum_required(VERSION 2.8)
+
+cmake_policy(SET CMP0054 NEW)
+
 set(CMAKE_PREFIX_PATH .)
 ENABLE_LANGUAGE(C)
 ENABLE_LANGUAGE(CXX)
