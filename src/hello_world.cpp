@@ -91,7 +91,9 @@ int main(int argc, char* argv[])
 	points[3].setX(-0.5f);
 	points[3].setY(0.5f);
 
-	for (int i = 0; i < 10000; ++i) {
+	bool run = true;
+	SDL_Event event;
+	while (run) {
 		glClear(GL_COLOR_BUFFER_BIT);
 
 		glBegin(GL_QUADS);
@@ -105,6 +107,12 @@ int main(int argc, char* argv[])
 		glEnd();
 
 		SDL_GL_SwapWindow(window);
+
+		if (SDL_PollEvent(&event)) {
+			if (event.type == SDL_QUIT) {
+				run = false;
+			}
+		}
 
 		SDL_Delay(10);
 	}
