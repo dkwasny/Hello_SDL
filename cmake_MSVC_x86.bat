@@ -2,7 +2,7 @@ REM A simple batch script that will create solution files for MSVC 12.
 REM All third party dll files will also be copied to all possible
 REM MSVC run modes.
 
-cmake -G "Visual Studio 12 2013" -DCMAKE_LIBRARY_ARCHITECTURE=MSVC_x86
+cmake -G "Visual Studio 14 2015" -DCMAKE_LIBRARY_ARCHITECTURE=MSVC_x86
 
 for %%D in (Debug Release MinSizeRel RelWithDebInfo) do (
 	if not exist %%D (
